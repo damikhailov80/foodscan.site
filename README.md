@@ -30,13 +30,51 @@ A barcode scanner application for food products to identify allergens, preservat
 npm install
 ```
 
+### HTTPS Setup
+
+Camera access requires HTTPS. Generate local SSL certificates using mkcert:
+
+1. Install mkcert:
+```bash
+brew install mkcert
+mkcert -install
+```
+
+2. Create certificates directory:
+```bash
+mkdir certificates
+```
+
+3. Generate certificates for localhost only:
+```bash
+mkcert -key-file certificates/localhost-key.pem -cert-file certificates/localhost.pem localhost 127.0.0.1 ::1
+```
+
+4. For mobile testing, find your local IP address:
+```bash
+ifconfig | grep "inet " | grep -v 127.0.0.1
+```
+
+5. Generate certificates including your local IP:
+```bash
+mkcert -key-file certificates/localhost-key.pem -cert-file certificates/localhost.pem localhost 127.0.0.1 ::1 192.168.x.x
+```
+
+Replace `192.168.x.x` with your actual local IP address from step 4.
+
+6. Trust the certificates on your mobile device:
+   - The server will display the network URL when started
+   - On mobile, you may need to trust the certificate in device settings
+
 ### Development
 
 ```bash
 npm run dev
 ```
 
-The application will run on `https://localhost:3000`
+The application will run on:
+- Local: `https://localhost:3000`
+- Network: `https://[your-local-ip]:3000`
 
 ## Usage
 
