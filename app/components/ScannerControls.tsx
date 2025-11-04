@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './ScannerControls.module.css';
+import Button from './Button';
 
 interface ScannerControlsProps {
   isScanning: boolean;
@@ -19,24 +19,17 @@ export default function ScannerControls({
 }: ScannerControlsProps) {
   if (isScanning) {
     return (
-      <button 
-        className={`${styles.button} ${styles.buttonStop}`}
-        onClick={onStop}
-      >
+      <Button variant="secondary" onClick={onStop}>
         Stop Scanning
-      </button>
+      </Button>
     );
   }
 
   if (hasStoppedManually) {
     return (
-      <button 
-        className={`${styles.button} ${styles.buttonStart}`}
-        onClick={onStart}
-        disabled={!selectedCamera}
-      >
+      <Button variant="primary" onClick={onStart} disabled={!selectedCamera}>
         Start Scanning
-      </button>
+      </Button>
     );
   }
 

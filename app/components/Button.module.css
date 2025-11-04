@@ -1,0 +1,64 @@
+.button {
+  width: 100%;
+  max-width: 320px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0 auto;
+  display: block;
+}
+
+.button:active {
+  transform: scale(0.98);
+  background-color: var(--color-primary);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonSecondary {
+  background-color: var(--color-danger);
+}
+
+.buttonSecondary:active {
+  background-color: rgba(188, 71, 73, 0.8);
+}
+
+@media (min-width: 768px) {
+  .button {
+    max-width: 400px;
+  }
+
+  .button:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 102, 65, 0.3);
+  }
+
+  .button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .buttonSecondary:hover:not(:disabled) {
+    background-color: rgba(188, 71, 73, 0.8);
+    box-shadow: 0 4px 12px rgba(188, 71, 73, 0.3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .button {
+    max-width: 450px;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.2rem;
+  }
+}

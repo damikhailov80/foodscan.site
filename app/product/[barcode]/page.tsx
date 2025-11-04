@@ -24,14 +24,14 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
         width: '100%',
         maxWidth: '400px',
         padding: '16px 24px',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white',
+        background: 'var(--color-secondary)',
+        color: 'var(--color-light)',
         borderRadius: '12px',
         textDecoration: 'none',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'center',
-        boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
+        boxShadow: '0 4px 15px rgba(106, 153, 78, 0.4)',
         transition: 'all 0.2s ease',
         display: 'block'
       }}>

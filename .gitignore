@@ -7,3 +7,4 @@ dist
 .env*.local
 certificates/
 .npmrc
+.idea

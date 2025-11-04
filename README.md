@@ -1,84 +1,74 @@
-# Food Barcode Scanner
+# FoodScan
 
-A barcode scanner application for food products to identify allergens, preservatives, and other ingredients.
+Barcode scanner application for product information.
 
-## Features
+## PWA Installation
 
-- Real-time barcode scanning using device camera
-- Product information lookup
-- Allergen detection
-- Preservative identification
-- Mobile-first responsive design
+The app can be installed on mobile and desktop devices:
 
-## Technology Stack
+1. Open the app in a browser (Chrome, Safari, Edge)
+2. A prompt will appear at the bottom of the screen
+3. Click "Install" to add the app to your home screen
 
-- Next.js
-- React
-- TypeScript
-- HTTPS support for camera access
+### Manual Installation
 
-## Getting Started
+**iOS (Safari):**
+1. Tap the Share button
+2. Scroll down and tap "Add to Home Screen"
+3. Tap "Add"
 
-### Prerequisites
+**Android (Chrome):**
+1. Tap the menu (three dots)
+2. Tap "Add to Home Screen"
+3. Tap "Add"
 
-- Node.js installed
-- HTTPS certificates for local development (camera access requires secure context)
+**Desktop (Chrome/Edge):**
+1. Click the install icon in the address bar
+2. Or visit `chrome://apps` to manage installed apps
 
-### Installation
+### Uninstall PWA
 
-```bash
-npm install
-```
+**Desktop:**
+1. Visit `chrome://apps` (or `edge://apps`)
+2. Right-click on FoodScan → Uninstall
+3. Or click the install icon in address bar → Uninstall
 
-### HTTPS Setup
+**Mobile:**
+1. Long press the app icon on home screen
+2. Select "Uninstall" or "Remove"
 
-Camera access requires HTTPS. Generate local SSL certificates using mkcert:
-
-1. Install mkcert:
-```bash
-brew install mkcert
-mkcert -install
-```
-
-2. Create certificates directory:
-```bash
-mkdir certificates
-```
-
-3. Generate certificates for localhost only:
-```bash
-mkcert -key-file certificates/localhost-key.pem -cert-file certificates/localhost.pem localhost 127.0.0.1 ::1
-```
-
-4. For mobile testing, find your local IP address:
-```bash
-ifconfig | grep "inet " | grep -v 127.0.0.1
-```
-
-5. Generate certificates including your local IP:
-```bash
-mkcert -key-file certificates/localhost-key.pem -cert-file certificates/localhost.pem localhost 127.0.0.1 ::1 192.168.x.x
-```
-
-Replace `192.168.x.x` with your actual local IP address from step 4.
-
-6. Trust the certificates on your mobile device:
-   - The server will display the network URL when started
-   - On mobile, you may need to trust the certificate in device settings
-
-### Development
+## Development
 
 ```bash
 npm run dev
 ```
 
-The application will run on:
-- Local: `https://localhost:3000`
-- Network: `https://[your-local-ip]:3000`
+Open [http://localhost:3000](http://localhost:3000)
 
-## Usage
+## HTTPS Development
 
-1. Open the application on your mobile device or desktop
-2. Grant camera permissions when prompted
-3. Point your camera at a food product barcode
-4. View product information including allergens and preservatives
+For camera access:
+
+```bash
+npm run dev:https
+```
+
+## Build
+
+```bash
+npm run build
+npm start
+```
+
+## PWA Features
+
+- Offline support with service worker
+- Install prompt for easy home screen addition
+- Standalone display mode
+- Optimized for mobile devices
+
+## Icons
+
+Replace placeholder icons in `/public`:
+- `icon-192.png` - 192x192px
+- `icon-512.png` - 512x512px

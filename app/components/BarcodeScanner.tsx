@@ -18,7 +18,7 @@ export default function BarcodeScanner() {
   const scannerRef = useRef<Html5Qrcode | null>(null);
   const scannerId = 'qr-reader';
 
-  const { cameras, selectedCamera, setSelectedCamera, permissionDenied } = useCameraDevices();
+  const { selectedCamera, permissionDenied } = useCameraDevices();
   const { stopScanner } = useScannerCleanup(scannerRef);
 
   const stopScanning = async () => {

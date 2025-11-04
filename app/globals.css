@@ -1,12 +1,24 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #386641;
+  --color-secondary: #6A994E;
+  --color-accent: #A7C957;
+  --color-light: #F2E8CF;
+  --color-danger: #BC4749;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  --background: #F2E8CF;
+  --foreground: #386641;
+  --text-primary: #386641;
+  --text-secondary: #6A994E;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #386641;
+    --foreground: #F2E8CF;
+    --text-primary: #F2E8CF;
+    --text-secondary: #A7C957;
   }
 }
 
