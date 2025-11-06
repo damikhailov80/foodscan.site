@@ -15,6 +15,9 @@ inclusion: always
 ## Code Style
 - No comments in code
 - Code must be self-explanatory through clear naming and structure
+- No inline styles allowed
+- All styles must be in separate CSS Module files (*.module.css)
+- Use CSS Modules approach for component styling
 
 ## Color Palette
 - All colors must be defined as CSS variables in `app/globals.css`

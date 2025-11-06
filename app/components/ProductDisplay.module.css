@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1rem;
+  gap: 1.5rem;
+  background: var(--color-light);
+}
+
+.containerSuccess {
+  background: var(--color-primary);
+}
+
+.containerDanger {
+  background: var(--color-danger);
+}
+
+.dataCard {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5rem;
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.error {
+  color: var(--color-danger);
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-light);
+  border-radius: 8px;
+}
+
+.productHeader {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-light);
+}
+
+.productName {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.productBrand {
+  font-size: 1.125rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.flagsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.flagPositive,
+.flagNegative {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.flagPositive {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.flagNegative {
+  background: var(--color-light);
+  color: var(--color-danger);
+}
+
+.flagIcon {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.confidenceBar {
+  width: 100%;
+  height: 24px;
+  background: var(--color-light);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.confidenceFill {
+  height: 100%;
+  background: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.confidenceText {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.sourceInfo {
+  padding: 0.75rem;
+  background: var(--color-light);
+  border-radius: 8px;
+}
+
+.sourceName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
+}
+
+.sourceDate {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+.homeButton {
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 24px;
+  background: var(--color-secondary);
+  color: var(--color-light);
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(106, 153, 78, 0.4);
+  transition: all 0.2s ease;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .productName {
+    font-size: 2rem;
+  }
+
+  .dataCard {
+    padding: 2rem;
+  }
+}

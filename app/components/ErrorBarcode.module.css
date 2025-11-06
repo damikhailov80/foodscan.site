@@ -1,0 +1,15 @@
+.barcode {
+  width: 180px;
+  height: 120px;
+}
+
+.bar {
+  fill: var(--background);
+}
+
+.code {
+  fill: var(--foreground);
+  font-size: 100px;
+  font-weight: 700;
+  text-anchor: middle;
+}

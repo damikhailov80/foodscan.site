@@ -39,6 +39,22 @@ The app can be installed on mobile and desktop devices:
 
 ## Development
 
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+EXTERNAL_API_URL=https://api.example.com
+EXTERNAL_API_BEARER_TOKEN=your_bearer_token_here
+```
+
+- `EXTERNAL_API_URL` - External API endpoint for product lookup
+- `EXTERNAL_API_BEARER_TOKEN` - Bearer token for API authentication
+
+See `.env.example` for reference.
+
+### Running the App
+
 ```bash
 npm run dev
 ```
