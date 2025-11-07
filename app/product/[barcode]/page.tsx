@@ -14,7 +14,6 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    console.log("process.env", process.env.NEXT_PUBLIC_EXTERNAL_API_URL)
     const fetchProduct = async () => {
       try {
         setLoading(true);

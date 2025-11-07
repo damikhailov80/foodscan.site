@@ -46,6 +46,9 @@ export default function BarcodeScanner() {
   }, [selectedCamera]);
 
   const handleScanSuccess = (decodedText: string) => {
+    if (navigator.vibrate) {
+      navigator.vibrate(200);
+    }
     router.push(`/product/${encodeURIComponent(decodedText)}`);
   };
 
