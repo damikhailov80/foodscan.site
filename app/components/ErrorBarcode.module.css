@@ -4,11 +4,11 @@
 }
 
 .bar {
-  fill: var(--background);
+  fill: var(--foreground);
 }
 
 .code {
-  fill: var(--foreground);
+  fill: var(--background);
   font-size: 100px;
   font-weight: 700;
   text-anchor: middle;
