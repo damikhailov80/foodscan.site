@@ -14,12 +14,13 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
+    console.log("process.env", process.env.NEXT_PUBLIC_EXTERNAL_API_URL)
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
           headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`,
             'Content-Type': 'application/json',
           },
         });
@@ -44,9 +45,9 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
             retries++;
             
             try {
-              const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
+              const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
                 headers: {
-                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`,
                   'Content-Type': 'application/json',
                 },
               });
