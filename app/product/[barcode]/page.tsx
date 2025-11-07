@@ -17,7 +17,12 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/v1/products/lookup?barcode=${barcode}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+        });
         const data = await response.json();
         
         setStatusCode(response.status);
@@ -39,7 +44,12 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
             retries++;
             
             try {
-              const retryResponse = await fetch(`/api/v1/products/lookup?barcode=${barcode}`);
+              const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
+                headers: {
+                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                  'Content-Type': 'application/json',
+                },
+              });
               const retryData = await retryResponse.json();
               
               if (retryResponse.status === 202) {
