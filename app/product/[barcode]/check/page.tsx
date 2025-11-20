@@ -95,3 +95,4 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
 
   return <ProductDisplay barcode={barcode} productData={productData} statusCode={statusCode} />;
 }
+

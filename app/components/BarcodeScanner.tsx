@@ -49,7 +49,7 @@ export default function BarcodeScanner() {
     if ('vibrate' in navigator) {
       navigator.vibrate(200);
     }
-    router.push(`/product/${encodeURIComponent(decodedText)}`);
+    router.push(`/product/${encodeURIComponent(decodedText)}/check`);
   };
 
   useScannerInit({
