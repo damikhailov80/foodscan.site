@@ -41,7 +41,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ barco
   }
 
   if (statusCode === 404) {
-    return <ProductNotFound />;
+    return <ProductNotFound barcode={barcode} />;
   }
 
   if (statusCode === 400) {

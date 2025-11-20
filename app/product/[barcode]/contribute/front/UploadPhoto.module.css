@@ -1,0 +1,284 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1rem;
+  background: var(--color-light);
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.backButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.backButton:hover {
+  color: var(--color-secondary);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  text-align: center;
+}
+
+.dropZone {
+  width: 100%;
+  height: 250px;
+  border: 3px dashed var(--color-secondary);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropZone.dragging {
+  border-color: var(--color-primary);
+  background: rgba(106, 153, 78, 0.1);
+  transform: scale(1.02);
+}
+
+.dropZone.hasImage {
+  border-style: solid;
+  border-width: 2px;
+  padding: 0;
+}
+
+.dropZoneContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.uploadIcon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.dropZoneText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.dropZoneSubtext {
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePreview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.removeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--color-danger);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.removeButton:hover {
+  background: rgba(188, 71, 73, 0.8);
+  transform: scale(1.05);
+}
+
+.removeButton:active {
+  transform: scale(0.98);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonCamera {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.buttonCamera:hover:not(:disabled) {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 102, 65, 0.3);
+}
+
+.buttonCamera:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.buttonChoose {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.buttonChoose:hover:not(:disabled) {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 153, 78, 0.3);
+}
+
+.buttonChoose:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.buttonSend {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.buttonSend:hover:not(:disabled) {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 102, 65, 0.3);
+}
+
+.buttonSend:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(106, 153, 78, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .dropZone {
+    height: 300px;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+
+  .button {
+    max-width: 250px;
+  }
+
+  .buttonSend {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 700px;
+  }
+
+  .dropZone {
+    height: 350px;
+  }
+}
+
