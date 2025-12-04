@@ -16,7 +16,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ barco
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:3000/api/products/${barcode}`, {
+        const response = await fetch(`/api/products/${barcode}`, {
           headers: {
             'Content-Type': 'application/json',
           },
