@@ -19,7 +19,6 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
         setLoading(true);
         const response = await fetch(`${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
           headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`,
             'Content-Type': 'application/json',
           },
         });
@@ -46,7 +45,6 @@ export default function ProductPage({ params }: { params: Promise<{ barcode: str
             try {
               const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/products/lookup?barcode=${barcode}`, {
                 headers: {
-                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`,
                   'Content-Type': 'application/json',
                 },
               });

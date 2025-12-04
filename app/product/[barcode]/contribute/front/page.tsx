@@ -127,7 +127,6 @@ export default function UploadFrontPhotoPage({ params }: { params: Promise<{ bar
       });
 
       xhr.open('POST', `${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/contributions`);
-      xhr.setRequestHeader('Authorization', `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`);
       xhr.send(formData);
 
       const response = await uploadPromise as { submission_id: string };

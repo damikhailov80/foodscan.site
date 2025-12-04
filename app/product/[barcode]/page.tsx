@@ -18,7 +18,6 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ barco
         setLoading(true);
         const response = await fetch(`${process.env.NEXT_PUBLIC_EXTERNAL_API_URL}/api/v1/product/${barcode}`, {
           headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_EXTERNAL_API_TOKEN}`,
             'Content-Type': 'application/json',
           },
         });
