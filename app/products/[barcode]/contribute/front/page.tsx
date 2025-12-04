@@ -131,8 +131,7 @@ export default function UploadFrontPhotoPage({ params }: { params: Promise<{ bar
 
       const response = await uploadPromise as { submission_id: string };
       
-      // Redirect to verify page with submission_id
-      router.push(`/product/${barcode}/contribute/${response.submission_id}/verify`);
+      router.push(`/products/${barcode}/contribute/${response.submission_id}/verify`);
       
     } catch (error) {
       console.error('Upload error:', error);

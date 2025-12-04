@@ -32,7 +32,7 @@ export default function ProductNotFound({ barcode }: ProductNotFoundProps) {
         padding: '0 1rem'
       }}>
         <Link 
-          href={`/product/${barcode}/contribute/front`}
+          href={`/products/${barcode}/contribute/front`}
           className={styles.button}
           style={{
             background: 'var(--color-secondary)',
