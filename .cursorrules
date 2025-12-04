@@ -1,0 +1,48 @@
+# Development Rules for FoodScan
+
+## Language Requirements
+- Write all notes, comments, and documentation in English
+- Code comments are NOT allowed - code must be self-explanatory
+
+## Design Principles
+- Follow mobile-first responsive design approach
+- Create adaptive layouts for different screen resolutions
+- Always prioritize mobile experience first, then scale up for larger screens
+
+## Code Style Requirements
+
+### No Comments Policy
+- Never add comments in code
+- Code must be self-explanatory through clear naming and structure
+- Use descriptive variable and function names instead of comments
+
+### Styling Rules
+- NEVER use inline styles
+- All styles MUST be in separate CSS Module files (*.module.css)
+- Always use CSS Modules approach for component styling
+- Each component should have its own .module.css file
+
+### Color Management
+- All colors MUST be defined as CSS variables in `app/globals.css`
+- Components MUST use ONLY CSS variables from the palette
+- NEVER use hardcoded color values (hex, rgb, rgba, hsl, or color names)
+- If a new color is needed, add it to `app/globals.css` first as a CSS variable, then use it
+
+## File Structure
+- Components: `app/components/ComponentName.tsx` + `ComponentName.module.css`
+- Hooks: `app/hooks/hookName/useHookName.ts`
+- Pages: `app/page.tsx` or `app/[route]/page.tsx`
+
+## When Creating New Components
+1. Create the component TypeScript file (.tsx)
+2. Create the corresponding CSS Module file (.module.css)
+3. Define any new colors in `app/globals.css` first
+4. Import and use CSS variables for all styling
+5. Ensure mobile-first responsive design
+
+## When Modifying Existing Code
+- Maintain consistency with existing patterns
+- Remove any inline styles if found
+- Replace hardcoded colors with CSS variables
+- Ensure no comments are added
+
