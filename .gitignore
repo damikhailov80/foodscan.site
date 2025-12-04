@@ -9,3 +9,7 @@ dist
 certificates/
 .npmrc
 .idea
+
+# MongoDB export/import files
+*-export.json
+dump/

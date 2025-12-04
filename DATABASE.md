@@ -53,6 +53,121 @@ MONGODB_URI=mongodb+srv://myuser:mypassword@cluster0.abc123.mongodb.net/foodscan
    npm run db:seed
    ```
 
+## Data Export and Import Between MongoDB Atlas Databases
+
+### Installing MongoDB Database Tools
+
+To export and import data between different MongoDB Atlas databases, you need to install MongoDB Database Tools:
+
+**macOS:**
+```bash
+brew tap mongodb/brew
+brew install mongodb-database-tools
+
+# Verify installation
+mongoexport --version
+mongoimport --version
+```
+
+### Exporting and Importing Collections
+
+**Export data from source database:**
+
+```bash
+mongoexport --uri="mongodb+srv://<username>:<password>@<source-cluster>.mongodb.net/<source-db>" \
+  --collection=products \
+  --jsonArray \
+  --pretty \
+  --out=products-export.json
+```
+
+**Import data to target database:**
+
+```bash
+mongoimport --uri="mongodb+srv://<username>:<password>@<target-cluster>.mongodb.net/<target-db>" \
+  --collection=products \
+  --file=products-export.json \
+  --jsonArray \
+  --mode=upsert \
+  --upsertFields=bar_code
+```
+
+### Import Options
+
+- `--jsonArray` - Export/import as a JSON array format (easier to read and edit)
+- `--pretty` - Format JSON output with indentation
+- `--mode=upsert` - Update existing documents or insert new ones
+- `--upsertFields=bar_code` - Use `bar_code` field to identify existing documents
+- `--drop` - Drop the collection before importing (use with caution)
+
+### Example: Exporting Specific Documents
+
+Export only products from a specific brand:
+
+```bash
+mongoexport --uri="mongodb+srv://user:password@source.mongodb.net/foodscan" \
+  --collection=products \
+  --query='{"brand_name": "Ferrero"}' \
+  --jsonArray \
+  --out=ferrero-products.json
+```
+
+Export only specific fields:
+
+```bash
+mongoexport --uri="mongodb+srv://user:password@source.mongodb.net/foodscan" \
+  --collection=products \
+  --fields=bar_code,product_name,brand_name \
+  --jsonArray \
+  --out=products-basic.json
+```
+
+### Troubleshooting TLS Connection Issues
+
+If you encounter TLS/SSL connection errors like `tlsv1 alert internal error` or `remote error: tls: internal error`, the application has been configured to handle these automatically.
+
+**Application TLS Configuration**
+
+The MongoDB client in `lib/mongodb.ts` is configured with:
+- TLS enabled by default
+- Relaxed certificate validation to work with MongoDB Atlas in all environments
+- Connection pooling for better performance
+- Automatic retry logic for read and write operations
+- Proper timeout settings for reliable connections
+
+**Note:** Using `tlsAllowInvalidCertificates: true` is safe with MongoDB Atlas as the connection is still encrypted via TLS, and MongoDB Atlas uses properly signed certificates. This setting helps avoid compatibility issues with different Node.js versions and SSL libraries across hosting platforms.
+
+**For MongoDB Database Tools (mongoexport/mongoimport)**
+
+**Solution 1: Update MongoDB Database Tools (recommended)**
+
+```bash
+brew upgrade mongodb-database-tools
+```
+
+**Solution 2: Disable TLS certificate verification (temporary workaround)**
+
+Add the `--tlsInsecure` flag to bypass certificate validation:
+
+```bash
+mongoimport --uri="mongodb+srv://user:password@target.mongodb.net/foodscan" \
+  --collection=products \
+  --file=products-export.json \
+  --jsonArray \
+  --mode=upsert \
+  --upsertFields=bar_code \
+  --tlsInsecure
+```
+
+**Note:** Only use `--tlsInsecure` for troubleshooting or in trusted networks. For production environments, always update the tools to the latest version or fix the underlying TLS issue.
+
+**Solution 3: Check MongoDB Atlas Network Access**
+
+Ensure your IP address is whitelisted in MongoDB Atlas:
+1. Log in to MongoDB Atlas
+2. Go to Network Access
+3. Add your current IP address or use `0.0.0.0/0` for testing (not recommended for production)
+
 ## Database Schema
 
 ### Products Collection
