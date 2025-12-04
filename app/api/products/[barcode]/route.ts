@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getDatabase } from '@/lib/mongodb';
 import { Product } from '@/types/product';
+import { validateBarcodeChecksum } from '@/lib/barcode-validator';
 
 export async function GET(
   request: Request,
@@ -8,6 +9,14 @@ export async function GET(
 ) {
   try {
     const { barcode } = await params;
+    
+    if (!validateBarcodeChecksum(barcode)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid barcode checksum' },
+        { status: 400 }
+      );
+    }
+    
     const db = await getDatabase();
     const product = await db
       .collection<Product>('products')
