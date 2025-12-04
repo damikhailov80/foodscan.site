@@ -46,3 +46,8 @@
 - Replace hardcoded colors with CSS variables
 - Ensure no comments are added
 
+## Documentation
+- NEVER create documentation files (*.md) unless explicitly requested by the user
+- Do not create README, SECURITY, DATABASE, or other markdown files proactively
+- Update existing README.md only when explicitly asked
+
