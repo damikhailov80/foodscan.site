@@ -82,15 +82,15 @@ MONGODB_URI=mongodb+srv://myuser:mypassword@cluster0.abc123.mongodb.net/foodscan
 
 The seed script includes 3 real products from Open Food Facts:
 
-1. **Nutella** (Ferrero) - Barcode: 3017624010701
+1. **Nutella** (Ferrero) - Barcode: 1111
    - Energy: 539 kcal (2255 kJ)
    - Fat: 30.9g, Carbs: 57.5g, Protein: 6.3g, Salt: 0.107g
 
-2. **Coca-Cola Original Taste** (Coca-Cola) - Barcode: 5449000000996
+2. **Coca-Cola Original Taste** (Coca-Cola) - Barcode: 2222
    - Energy: 42 kcal (180 kJ)
    - Fat: 0g, Carbs: 10.6g, Protein: 0g, Salt: 0g
 
-3. **Nature Yogurt** (Danone) - Barcode: 3033490004545
+3. **Nature Yogurt** (Danone) - Barcode: 3333
    - Energy: 74 kcal (272 kJ)
    - Fat: 3.0g, Carbs: 7.0g, Protein: 4.8g, Salt: 0.07g
 
