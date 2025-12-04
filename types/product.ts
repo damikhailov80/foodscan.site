@@ -12,5 +12,5 @@ export interface Product {
   bar_code: string;
   product_name: string;
   brand_name: string;
-  nutrition: Nutrition;
+  nutrition?: Nutrition;
 }

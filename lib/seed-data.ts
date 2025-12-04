@@ -40,4 +40,19 @@ export const seedProducts: Omit<Product, '_id'>[] = [
       salt: 0.07,
     },
   },
+  {
+    bar_code: '11',
+    product_name: 'Nutella',
+    brand_name: 'Ferrero'
+  },
+  {
+    bar_code: '22',
+    product_name: 'Coca-Cola Original Taste',
+    brand_name: 'Coca-Cola'
+  },
+  {
+    bar_code: '33',
+    product_name: 'Nature Yogurt',
+    brand_name: 'Danone'
+  },
 ];
