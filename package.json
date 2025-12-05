@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:https": "node server.js",
+    "dev:https": "NODE_ENV=development node server.js",
     "build": "next build",
     "start": "next start",
     "generate-certs": "bash generate-certificates.sh",

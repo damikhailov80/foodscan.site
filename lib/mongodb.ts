@@ -1,13 +1,12 @@
-import { MongoClient, Db } from 'mongodb';
+import { MongoClient, Db, MongoClientOptions } from 'mongodb';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MONGODB_URI to .env.local');
 }
 
 const uri: string = process.env.MONGODB_URI;
-const options = {
-  tls: true,
-  tlsAllowInvalidCertificates: true,
+
+const options: MongoClientOptions = {
   serverSelectionTimeoutMS: 10000,
   socketTimeoutMS: 45000,
   maxPoolSize: 10,
