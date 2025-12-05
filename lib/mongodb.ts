@@ -7,6 +7,7 @@ if (!process.env.MONGODB_URI) {
 const uri: string = process.env.MONGODB_URI;
 
 const options: MongoClientOptions = {
+  tls: true,
   serverSelectionTimeoutMS: 10000,
   socketTimeoutMS: 45000,
   maxPoolSize: 10,
