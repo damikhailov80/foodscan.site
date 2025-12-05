@@ -12,6 +12,9 @@ const options: MongoClientOptions = {
     strict: true,
     deprecationErrors: true,
   },
+  tls: true,
+  tlsAllowInvalidCertificates: true,
+  tlsAllowInvalidHostnames: true,
 };
 
 const globalWithMongo = global as typeof globalThis & {
