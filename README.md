@@ -39,41 +39,72 @@ The app can be installed on mobile and desktop devices:
 
 ## Development
 
-### Environment Variables
-
-Create a `.env.local` file in the root directory with the following variables:
-
-```env
-EXTERNAL_API_URL=https://api.example.com
-EXTERNAL_API_BEARER_TOKEN=your_bearer_token_here
-```
-
-- `EXTERNAL_API_URL` - External API endpoint for product lookup
-- `EXTERNAL_API_BEARER_TOKEN` - Bearer token for API authentication
-
-See `.env.example` for reference.
-
-### Running the App
+### Quick Start
 
 ```bash
+npm install
+npm run storage:setup
+npm run storage:download
+npm run storage:upload
+npm run db:seed
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## HTTPS Development
+See [DATABASE.md](DATABASE.md) for detailed setup instructions.
 
-For camera access:
+### Environment Variables
 
+Create a `.env.local` file in the root directory:
+
+```env
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/foodscan?retryWrites=true&w=majority
+
+NODE_ENV=development
+MINIO_ENDPOINT=http://localhost:9000
+MINIO_ACCESS_KEY=minioadmin
+MINIO_SECRET_KEY=minioadmin
+STORAGE_BUCKET_NAME=foodscan-products
+```
+
+See [DATABASE.md](DATABASE.md) for MongoDB Atlas setup.
+
+### Running the App
+
+**HTTP (development):**
+```bash
+npm run dev
+```
+
+**HTTPS (for camera access):**
 ```bash
 npm run dev:https
 ```
 
-## Build
+### Build
 
 ```bash
 npm run build
 npm start
+```
+
+### Available Commands
+
+```bash
+npm run dev              # Start development server (HTTP)
+npm run dev:https        # Start development server (HTTPS)
+npm run build            # Build for production
+npm run start            # Start production server
+
+npm run db:seed          # Seed database with test data
+npm run db:reset         # Delete all data and reseed
+
+npm run storage:setup    # Start MinIO (local storage)
+npm run storage:stop     # Stop MinIO
+npm run storage:download # Download test images
+npm run storage:upload   # Upload test images
+npm run storage:reset    # Reset MinIO
 ```
 
 ## PWA Features

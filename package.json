@@ -8,9 +8,17 @@
     "build": "next build",
     "start": "next start",
     "generate-certs": "bash generate-certificates.sh",
-    "db:seed": "tsx scripts/seed-db.ts"
+    "db:seed": "dotenv -e .env.local -- tsx scripts/seed-db.ts",
+    "db:clean": "dotenv -e .env.local -- tsx scripts/clean-db.ts",
+    "storage:setup": "docker-compose up -d",
+    "storage:stop": "docker-compose down",
+    "storage:download": "tsx scripts/download-test-images.ts",
+    "storage:upload": "dotenv -e .env.local -- tsx scripts/upload-test-images.ts",
+    "storage:reset": "docker-compose down -v && docker-compose up -d"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.946.0",
+    "@aws-sdk/s3-request-presigner": "^3.946.0",
     "html5-qrcode": "^2.3.8",
     "mongodb": "^7.0.0",
     "next": "^16.0.7",
@@ -21,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^8.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5"
   }

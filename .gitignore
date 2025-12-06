@@ -13,3 +13,6 @@ certificates/
 # MongoDB export/import files
 *-export.json
 dump/
+
+# Test images
+test-images/

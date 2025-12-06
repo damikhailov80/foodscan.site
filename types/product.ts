@@ -7,10 +7,16 @@ export interface Nutrition {
   salt: number | null;
 }
 
+export interface ProductPhotos {
+  front?: string;
+  nutrition?: string;
+}
+
 export interface Product {
   _id?: string;
   bar_code: string;
   product_name: string;
   brand_name: string;
   nutrition?: Nutrition;
+  photos?: ProductPhotos;
 }

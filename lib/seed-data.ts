@@ -1,4 +1,9 @@
 import { Product } from '@/types/product';
+import { getStorageBaseUrl } from './storage';
+
+const getPhotoUrl = (barcode: string, type: 'front' | 'nutrition') => {
+  return `${getStorageBaseUrl()}/products/${barcode}-${type}.jpg`;
+};
 
 export const seedProducts: Omit<Product, '_id'>[] = [
   {
@@ -13,6 +18,10 @@ export const seedProducts: Omit<Product, '_id'>[] = [
       protein: 6.3,
       salt: 0.107,
     },
+    photos: {
+      front: getPhotoUrl('1111', 'front'),
+      nutrition: getPhotoUrl('1111', 'nutrition'),
+    },
   },
   {
     bar_code: '2222',
@@ -26,6 +35,10 @@ export const seedProducts: Omit<Product, '_id'>[] = [
       protein: 0,
       salt: 0,
     },
+    photos: {
+      front: getPhotoUrl('2222', 'front'),
+      nutrition: getPhotoUrl('2222', 'nutrition'),
+    },
   },
   {
     bar_code: '3333',
@@ -38,6 +51,10 @@ export const seedProducts: Omit<Product, '_id'>[] = [
       carbohydrates: 7.0,
       protein: 4.8,
       salt: 0.07,
+    },
+    photos: {
+      front: getPhotoUrl('3333', 'front'),
+      nutrition: getPhotoUrl('3333', 'nutrition'),
     },
   },
   {
